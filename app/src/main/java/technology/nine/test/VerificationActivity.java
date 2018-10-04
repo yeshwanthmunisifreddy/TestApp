@@ -51,6 +51,7 @@ public class VerificationActivity extends AppCompatActivity {
                 editor.apply();
                 Intent intent = new Intent(this,MainActivity.class);
                 startActivity(intent);
+                finish();
 
             }
             else {

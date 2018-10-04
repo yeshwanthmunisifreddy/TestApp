@@ -64,10 +64,21 @@ public class LoginActivity extends AppCompatActivity {
         categories.add("+38");
         categories.add("+41");
         categories.add("+51");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        final ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+        spinner.setSelection(0);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int pos, long id) {
+                spinner.setSelection(pos);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+        dataAdapter.notifyDataSetChanged();
     }
 
     public void checkLogin() {
@@ -95,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.apply();
             Intent intent = new Intent(this, VerificationActivity.class);
             startActivity(intent);
+            finish();
         }
 
 
