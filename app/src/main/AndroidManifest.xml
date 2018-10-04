@@ -4,9 +4,10 @@
     package="technology.nine.test">
 
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera.flash" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +30,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".VerificationActivity" />
-        <activity android:name=".ResultActvitiy" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ScannerActiivity" />
-        <activity android:name=".BarcodeHistoryActivity" />
+        <activity android:name=".MainActivity"
+            android:label="@string/app_name"/>
+        <activity android:name=".VerificationActivity"
+            android:label="Wellcome"/>
+        <activity android:name=".ResultActvitiy"
+            android:label="QR code"/>
+        <activity android:name=".LoginActivity"
+            android:label="Login"/>
+        <activity android:name=".ScannerActiivity"
+            android:label="Scanner"/>
+        <activity android:name=".BarcodeHistoryActivity"
+            android:label="Scan History"/>
+        <activity android:name=".ScanActivity" />
     </application>
 
 </manifest>

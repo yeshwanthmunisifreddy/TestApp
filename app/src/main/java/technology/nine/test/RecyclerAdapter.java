@@ -17,10 +17,14 @@ import technology.nine.test.model.Items;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
     private Context context;
     private ArrayList<Items> items;
-
-    RecyclerAdapter(Context context, ArrayList<Items> items) {
+    private Cummunicator cummunicator;
+    public interface Cummunicator {
+        void itemClicked();
+    }
+    RecyclerAdapter(Context context, ArrayList<Items> items,Cummunicator cummunicator) {
         this.context = context;
         this.items = items;
+        this.cummunicator = cummunicator;
     }
 
     @NonNull
@@ -37,7 +41,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             @Override
             public void onClick(View v) {
                 if (items.get(i).getTitles().equals("Scan")) {
-                   context.startActivity(new Intent(context, ScannerActiivity.class));
+                 cummunicator.itemClicked();
 
                 }
             }

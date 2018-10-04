@@ -24,4 +24,5 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="barcode_history">Barcode History</string>
     <string name="scan_history">Scan History</string>
+    <string name="please_make_sure_qr_code_is_in_focus_and_clearly_visible_on_your_screen">Please make sure QR Code is in focus and Clearly visible on your screen</string>
 </resources>
