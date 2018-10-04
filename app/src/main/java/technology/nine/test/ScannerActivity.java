@@ -21,7 +21,7 @@ import com.google.zxing.Result;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import technology.nine.test.data.DBHelper;
 
-public class ScannerActiivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class ScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private static final int REQUEST_CAMERA = 106;
     private ZXingScannerView scannerView;
     DBHelper helper;
@@ -42,7 +42,7 @@ public class ScannerActiivity extends AppCompatActivity implements ZXingScannerV
     }
 
     private boolean checkPermissions() {
-        return (ContextCompat.checkSelfPermission(ScannerActiivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED);
+        return (ContextCompat.checkSelfPermission(ScannerActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED);
     }
 
     private void requestPermission() {
@@ -56,9 +56,9 @@ public class ScannerActiivity extends AppCompatActivity implements ZXingScannerV
                 if (grantResults.length > 0) {
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     if (cameraAccepted) {
-                        Toast.makeText(ScannerActiivity.this, "Permission Granted", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ScannerActivity.this, "Permission Granted", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(ScannerActiivity.this, "Permission Denied", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ScannerActivity.this, "Permission Denied", Toast.LENGTH_LONG).show();
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
                                 displayAlertMessage("You need to access for both permission", new DialogInterface.OnClickListener() {
@@ -105,7 +105,7 @@ public class ScannerActiivity extends AppCompatActivity implements ZXingScannerV
     }
 
     public void displayAlertMessage(String message, DialogInterface.OnClickListener listener) {
-        new AlertDialog.Builder(ScannerActiivity.this)
+        new AlertDialog.Builder(ScannerActivity.this)
                 .setMessage(message)
                 .setPositiveButton("Ok", listener)
                 .setNegativeButton("Cancel", null)
@@ -118,7 +118,7 @@ public class ScannerActiivity extends AppCompatActivity implements ZXingScannerV
         helper = new DBHelper(this);
         helper.insertBarcode(scanResult);
         scannerView.setFlash(false);
-        startActivity(new Intent(ScannerActiivity.this, ResultActvitiy.class).putExtra("Value", scanResult));
+        startActivity(new Intent(ScannerActivity.this, ResultActivity.class).putExtra("Value", scanResult));
 
     }
 }
