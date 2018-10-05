@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.CAMERA)) {
                 //Show Information about why you need the permission
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Need Storage Permission");
-                builder.setMessage("This app needs storage permission.");
+                builder.setTitle("Need Camera Permission");
+                builder.setMessage("This app needs camera permission.");
                 builder.setPositiveButton("Grant", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity {
                 //Previously Permission Request was cancelled with 'Dont Ask Again',
                 // Redirect to Settings after showing Information about why you need the permission
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Need Storage Permission");
-                builder.setMessage("This app needs storage permission.");
+                builder.setTitle("Need Camera Permission");
+                builder.setMessage("This app needs camera permission.");
                 builder.setPositiveButton("Grant", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                         Uri uri = Uri.fromParts("package", getPackageName(), null);
                         intent.setData(uri);
                         startActivityForResult(intent, REQUEST_CAMERA_PERMISSION);
-                        Toast.makeText(getBaseContext(), "Go to Permissions to Grant Storage", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Go to Permissions to Grant Camera", Toast.LENGTH_LONG).show();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -164,8 +164,8 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.CAMERA)) {
                     //Show Information about why you need the permission
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setTitle("Need Storage Permission");
-                    builder.setMessage("This app needs storage permission");
+                    builder.setTitle("Need Camera Permission");
+                    builder.setMessage("This app needs camera permission");
                     builder.setPositiveButton("Grant", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
